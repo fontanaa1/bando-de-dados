@@ -112,6 +112,8 @@ app.put('/usuarios/:id', (req, res) =>{
             return res.status(500).json({error: 'Erro ao atuaizar usuario'});
         }
         if (this.changes > 0){
+            res.json({message: 'Usuário atualizado com sucesso'});
+        } else {
             res.status(404).json({error: 'Usuário não encontrado'});
         }
     });
@@ -136,7 +138,7 @@ app.delete('/usuarios/:id', (req, res) =>{
 
 //inicia o servidor e faz escuta da porta definida
 app.listen(port,() =>{
-    console.log(`Servidor rodando em http://localhost:${port}`);
+    console.log(`Servidor rodando em http://localhost:3000`);
 });
 process.on('SIGINT', () =>{
     db.close((err) => {

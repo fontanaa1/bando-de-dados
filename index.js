@@ -80,7 +80,7 @@ app.get('/usuarios', (req, res) =>{
 //GET = Read com ID
 app.get('/usuarios/:id', (req, res) => {
     const {id} = req.params;
-    const sql = `SELECT * usuarios WHERE  id = ?`;
+    const sql = `SELECT * FROM usuarios WHERE  id = ?`;
     db.get(sql, [id], (err, row) =>{
         if (err){
             console.error(err.message);
